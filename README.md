@@ -3,7 +3,7 @@
 
 ## Final Project for Higher Technician in Multiplatform Application Development
 
-* IntelliJ project. Engine based on Amir Afghani's tutorial rewritten in spanish and adapted to JavaFX:*
+* IntelliJ project. Engine based on Amir Afghani's tutorial rewritten in spanish and adapted to JavaFX:
 ### GitHub
 - https://github.com/amir650/BlackWidow-Chess
 ### YouTube
