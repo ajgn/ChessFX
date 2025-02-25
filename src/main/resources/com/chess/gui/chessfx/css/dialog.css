@@ -1,0 +1,27 @@
+#about,
+#about > *.button-bar > *.container,
+#terminado,
+#terminado > *.button-bar > *.container,
+#about:header *.header-panel,
+#terminado:header *.header-panel {
+    -fx-background-color: #943634;
+}
+
+#about > *.label.content,
+#terminado > *.label.content {
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #ffcf9f;
+}
+
+#about:header *.header-panel,
+#terminado:header *.header-panel {
+    -fx-text-fill: #ffcf9f;
+}
+
+#about:header *.header-panel *.label,
+#terminado:header *.header-panel *.label {
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #ffcf9f;
+}

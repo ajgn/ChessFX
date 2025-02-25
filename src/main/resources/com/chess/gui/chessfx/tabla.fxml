@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.CheckMenuItem?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<BorderPane fx:id="borderPane" stylesheets="@css/style.css" xmlns="http://javafx.com/javafx/null" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.chess.gui.chessfx.MainController">
+   <top>
+      <MenuBar fx:id="menuBar" BorderPane.alignment="CENTER">
+        <menus>
+          <Menu fx:id="menuArchivo" mnemonicParsing="false" text="%archivo">
+            <items>
+                  <MenuItem fx:id="nuevaPartida" mnemonicParsing="false" onAction="#nuevaPartida" text="%nueva_partida" />
+                  <MenuItem fx:id="cargarPartida" mnemonicParsing="false" onAction="#cargarPartida" text="%cargar_ultima_partida" />
+                  <MenuItem fx:id="guardarPartida" mnemonicParsing="false" onAction="#guardarPartida" text="%guardar_partida" />
+                  <MenuItem fx:id="exportarPartidas" mnemonicParsing="false" onAction="#exportarPartidas" text="%exportar_partidas" />
+                  <MenuItem fx:id="limpiarBaseDeDatos" mnemonicParsing="false" onAction="#limpiarBaseDeDatos" text="%limpiar_base_de_datos" />
+              <MenuItem fx:id="salir" mnemonicParsing="false" onAction="#salir" text="%salir" />
+            </items>
+          </Menu>
+            <Menu fx:id="menuPreferencias" mnemonicParsing="false" text="%preferencias">
+              <items>
+                <MenuItem fx:id="invertido" mnemonicParsing="false" onAction="#invertir" text="%invertido" />
+                  <CheckMenuItem fx:id="mostrarLegalesCheckMenuItem" mnemonicParsing="false" onAction="#seleccionarMostrarLegales" selected="true" text="%mostrar_legales" />
+              </items>
+            </Menu>
+          <Menu fx:id="menuAyuda" mnemonicParsing="false" text="%ayuda">
+            <items>
+              <MenuItem fx:id="acercaDe" mnemonicParsing="false" onAction="#acercaDe" text="%acerca_de" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+   </top>
+   <center>
+      <GridPane fx:id="panelTablero" alignment="CENTER" maxHeight="800.0" maxWidth="800.0" minHeight="600.0" minWidth="600.0" prefHeight="600.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+      </GridPane>
+   </center>
+   <bottom>
+      <BorderPane BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets />
+         </BorderPane.margin>
+         <left>
+            <Label fx:id="label" text="\%mensaje" BorderPane.alignment="CENTER">
+               <BorderPane.margin>
+                  <Insets left="10.0" />
+               </BorderPane.margin>
+            </Label>
+         </left>
+         <right>
+            <Label fx:id="labelNombre" text="\%nombre" BorderPane.alignment="CENTER">
+               <BorderPane.margin>
+                  <Insets right="10.0" />
+               </BorderPane.margin>
+            </Label>
+         </right>
+      </BorderPane>
+   </bottom>
+   <left>
+      <SplitPane fx:id="panelPiezasCapturadas" disable="true" dividerPositions="0.5" orientation="VERTICAL" prefWidth="72.0" BorderPane.alignment="CENTER">
+        <items>
+          <AnchorPane fx:id="panelSuperior" minHeight="0.0" minWidth="0.0" prefWidth="72.0">
+               <children>
+                  <GridPane fx:id="gridPaneSuperior" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                  </GridPane>
+               </children>
+            </AnchorPane>
+          <AnchorPane fx:id="panelInferior" minHeight="0.0" minWidth="0.0" prefWidth="72.0">
+               <children>
+                  <GridPane fx:id="gridPaneInferior" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                  </GridPane>
+               </children>
+            </AnchorPane>
+        </items>
+         <BorderPane.margin>
+            <Insets />
+         </BorderPane.margin>
+      </SplitPane>
+   </left>
+   <right>
+      <TableView fx:id="panelHistoricoMovimientos" prefWidth="122.0" BorderPane.alignment="CENTER">
+        <columns>
+          <TableColumn fx:id="c1" prefWidth="59.0" resizable="false" text="%blancas" />
+          <TableColumn fx:id="c2" prefWidth="59.0" resizable="false" text="%negras" />
+        </columns>
+         <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>
+      </TableView>
+   </right>
+   <opaqueInsets>
+      <Insets />
+   </opaqueInsets>
+</BorderPane>
